@@ -1,7 +1,6 @@
 import os
 import requests
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 class ViettelAPIClient:
     def __init__(self):
         self.api_url = "https://viettelai.vn/tts/speech_synthesis"
@@ -25,7 +24,7 @@ class ViettelAPIClient:
         }
 
         try:
-            response = requests.post(self.api_url, headers=self.headers, json=body, verify=False)
+            response = requests.post(self.api_url, headers=self.headers, json=body)
             if response.status_code == 200:
                 with open(filepath, "wb") as f:
                     f.write(response.content)
@@ -39,5 +38,6 @@ class ViettelAPIClient:
 
 
 import time
+
 
 
