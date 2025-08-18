@@ -10,11 +10,6 @@ class ViettelAPIClient:
         }
 
     def get_audio_file(self, text, speaker_id, speaker_name_friendly, output_dir, filename_prefix="viettel_"):
-        """
-        Gửi yêu cầu tổng hợp giọng nói Viettel với text và speaker_id.
-        Lưu file âm thanh về output_dir với tên file có tiền tố filename_prefix.
-        Trả về đường dẫn file audio, hoặc None nếu thất bại.
-        """
         if not os.path.exists(output_dir):
             os.makedirs(output_dir, exist_ok=True)
 
@@ -44,4 +39,5 @@ class ViettelAPIClient:
 
 
 import time
+
 
